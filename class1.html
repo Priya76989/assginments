@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Table manipulation</title>
+    </head>
+    <body>
+        <table id="tableeg" border="1">
+            <tr>
+                <td>Row1 Col1</td>
+                <td>Row1 Col2</td>
+            </tr>
+            <tr>
+                <td>Row2 Col1</td>
+                <td>Row2 Col2</td>
+            </tr>
+            <tr>
+                <td>Row3 Col1</td>
+                <td>Row3 Col2</td>
+            </tr>
+            <tr>
+                <td>Row4 Col1</td>
+                <td>Row4 Col2</td>
+            </tr>
+            <tr>
+                <td>Row5 Col1</td>
+                <td>Row5 Col2</td>
+            </tr>
+        </table>
+
+        <br>
+
+        <input type="button" onclick="insertrowbottom()" value="Insert Row">
+        <input type="button" onclick="deleteRowTop()" value="Delete Row">
+
+        <p id="message">Message:</p>
+
+        <script>
+            var x = 5;
+            function insertrowbottom(){
+                var table = document.getElementById("tableeg");
+                var rowCount = table.rows.length;
+                var newRow = table.insertRow(rowCount);
+
+                // Insert cells for the new row
+                var cell1 = newRow.insertCell(0);
+                var cell2 = newRow.insertCell(1);
+
+                // Set the content of the new cells
+                cell1.innerHTML = "Row" + (rowCount + 1) + " Col1";
+                cell2.innerHTML = "Row" + (rowCount + 1) + " Col2";
+
+                // Clear message if new rows are added after deletion
+                document.getElementById("message").textContent = "Message:";
+            }
+
+            function deleteRowTop() {
+                var table = document.getElementById("tableeg");
+                var rowCount = table.rows.length;
+
+                if (rowCount > 0) {
+                    table.deleteRow(0); // Delete the first row
+                }
+
+                // Update the message if no rows remain
+                if (rowCount === 1) {
+                    document.getElementById("message").textContent = "Message: No more rows to delete";
+                } else {
+                    document.getElementById("message").textContent = "Message:";
+                }
+            }
+        </script>
+    </body>
+</html>

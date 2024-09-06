@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AC-3</title>
+</head>
+<body>
+    <form action="">
+        <input type="text" id="one" placeholder="Number 1">
+        <input type="text" id="two" placeholder="Number 2">
+        
+        <p id="result"></p>
+
+        <button type="button" onclick="add()">+</button>
+    </form>
+
+    <script>
+        function add() {
+            let a = document.getElementById("one").value;
+            let b = document.getElementById("two").value;
+
+            if (a == "") { 
+                document.getElementById("result").innerHTML = "Please provide first input.";
+                return; 
+            } else if (b == "") {  
+                document.getElementById("result").innerHTML = "Please provide second input.";
+                return;  
+            }
+
+        
+            let A = parseFloat(a);
+            let B = parseFloat(b);
+
+             
+    
+            let c = A + B;
+
+            // Display result
+            document.getElementById("result").innerHTML = "Sum: " + c;
+        }
+    </script>
+</body>
+</html>

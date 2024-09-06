@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+
+
+    <form action="">
+
+        <input type="text" id="fname" placeholder="First name"> 
+        <p id="fname_msg"></p>
+        <br>
+        <input type="text" id="lname"  placeholder="Last name"> 
+        <p id="lname_msg"></p>
+        <br>
+
+        <input type="text" placeholder="Email"> 
+        <br>
+        <input type="text" id="mobile" placeholder="Mobile"> 
+        <p id="mobile_msg"></p>
+        <br>
+
+        <Button type="Button" onclick="validate()">Submit</Button>
+
+
+
+    </form>
+
+
+    <script>
+        function validate(){
+            document.getElementById("fname_msg").innerHTML=""
+            document.getElementById("lname_msg").innerHTML=""
+            document.getElementById("mobile_msg").innerHTML=""
+            fname=document.getElementById("fname").value;
+            lname=document.getElementById("lname").value;
+            mobile=document.getElementById("mobile").value;
+
+            if(fname==""){
+
+                document.getElementById("fname_msg").innerHTML="Please enter fisrt name"
+            }else{
+
+                var patt = new RegExp(/^[a-zA-Z]/);
+                var res = patt.test(fname);
+
+                if(res){
+
+                }else{
+                    document.getElementById("fname_msg").innerHTML="Please enter valid name"
+                }
+
+
+            }
+
+            if(lname==""){
+
+            document.getElementById("lname_msg").innerHTML="Please enter Last name"
+            }
+
+
+            if(mobile==""){
+
+            document.getElementById("mobile_msg").innerHTML="Please enter Mobile Number"
+            }else{
+
+            var patt = new RegExp(/^[(]{0,1}[0-9]{3}[)]{0,1}[-\s\.]{0,1}[0-9]{3}[-\s\.]{0,1}[0-9]{4}$/);
+            var res = patt.test(mobile);
+
+            if(res){
+
+            }else{
+                document.getElementById("mobile_msg").innerHTML="Please enter valid Mobile Number"
+            }
+
+
+            }
+        }
+    </script>
+</body>
+</html>
